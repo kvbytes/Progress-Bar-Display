@@ -86,27 +86,24 @@ long wordcount(FILE * fp)
 
 int main(int argc, char** argv)
 {
-    if (argc == 20)
-        //if (argc == 1)
+    if (argc == 1)
     {
         printf("No file specified.");
         printf("\n");
         return -1;
     }
 
-    FILE *fp = fopen("big.txt", "r");
-    //FILE *fp = fopen(argv[1], "r");
+    FILE *fp = fopen(argv[1], "r");
     if (fp == NULL)
     {
         printf("Could not open file.");
         printf("\n");
         return -2;
     }
+    
     // wcount will have the total count
     long wcount = wordcount(fp);
-    printf("\nThere are %lu words in big", wcount);
-    //printf("\nThere are %lu words in %s", wcount, argv[1]);
-    printf("\n");
+    printf("\nThere are %lu words in %s\n", wcount, argv[1]);
     fclose(fp);
     return 0;
 }
